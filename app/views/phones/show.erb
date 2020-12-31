@@ -1,0 +1,16 @@
+<h1>Name: <%= @phone.name %></h1>
+<h2>Model No.: <%= @phone.model %></h2>
+<h4>Age: <%= @phone.age %></h4>
+
+<ul>
+<% @phone.category.each do |model| %>
+  <li><%= category.name %></li>
+<% end %>
+
+</ul>
+
+<a href="/phones/<%= @phone.id %>/edit">Edit <%= @phone.name %></a>
+  <form method="POST" action="/phones/<%=@phone.id %>">
+  <input type="hidden" value="DELETE" name="_method">
+  <input type="submit" value="DELETE">
+</form>
