@@ -1,12 +1,18 @@
 class SessionsController < ApplicationController
 
   get '/login' do
-    erb :"sessions/new"
+    erb :"users/login"
   end
 
-  post '/sessions' do
-    session[:username] = params[:username]
-    redirect '/posts'
+  post '/login' do
+    user = User.find_by(username: params[:user][:username])
+    binding.pry
+    if user
+      # log them in
+      # redirect
+    else
+
+    end
   end
 
   get '/logout' do

@@ -1,10 +1,6 @@
-<h1>Users:</h1>
-<ul><% @users.each do |user| %>
-    <li><a href="/users/<%= user.id%>"><%= user.name %></a></li>
-
-  <% end %></ul>
-
-<% if logged_in? %>
-  <h3>You are logged in as: <%= current_user.username %> </h3> <!--current_user method returns the user object -->
-  <a href="/logout">Log out here</a>
-<% end %>
+<h1>Log In</h1>
+<form action="/login" method="POST">
+  <input type="text" name="user[username]" ><br>
+  <input type="password" name="user[password]"><br>
+  <input type="submit" value="Log In">
+</form>

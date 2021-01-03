@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if user.save
       # redirect
       session[:user_id] = user_id # if true, then login user
-      redirect to '/users'
+      redirect '/phones/index'
     else      
       # binding.pry
       @errors = user.errors.full_messages.join(" - ")
