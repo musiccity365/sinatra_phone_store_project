@@ -7,7 +7,8 @@ class PhonesController < ApplicationController
 
   # Create - processes the form and creates a phone
   post '/phones' do
-    phone = Phone.create(params) # all keys in params hash match column name, so you can check this line in binding.pry 
+    binding.pry
+    phone = current_user.phones.create(params) # all keys in params hash match column name, so you can check this line in binding.pry 
     redirect "/phones" # only get requests will render views directly
   end
 
