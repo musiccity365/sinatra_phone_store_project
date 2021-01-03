@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if user.save
       # redirect
       session[:user_id] = user.id # if true, then login user
-      redirect to "/users"
+      redirect to "/users/#{user.id}"
     else      
       # binding.pry
       @errors = user.errors.full_messages.join(" - ")
@@ -48,11 +48,9 @@ class UsersController < ApplicationController
     redirect to '/login'
   end
 
-  # get '/users' do #index - loads all the users
-  #   @users = User.all
-  #   # binding.pry
-  #   erb :'/users/index'
-  # end
+  get '/users' do 
+    redirect to "/users/#{current_user.id}"
+  end
 
 
   # post '/users' do
