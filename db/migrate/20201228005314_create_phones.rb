@@ -4,7 +4,8 @@ class CreatePhones < ActiveRecord::Migration
       t.string :name
       t.string :model
       t.string :color
-      t.string :vintage
+      t.integer :age
+      t.integer :user_id
     end
   end
 end

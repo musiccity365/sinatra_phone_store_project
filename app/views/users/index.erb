@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
-  </head>
-  <body id="page-top">
-    <h1>Welcome to the Antique Phone Shop</h1>
-    <h3>Log In Please</h3>
-    <form method="post" action="/login">
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="password">
-      <input type="submit">
-    </form>
-  </body>
-</html>
+<h1>Users:</h1>
+<ul><% @users.each do |user| %>
+    <li><a href="/users/<%= user.id%>"><%= user.name %></a></li>
+
+  <% end %></ul>
+
+<% if logged_in? %>
+  <h3>You are logged in as: <%= current_user.username %> </h3> <!--current_user method returns the user object -->
+  <a href="/logout">Log out here</a>
+<% end %>

@@ -14,16 +14,17 @@
 ActiveRecord::Schema.define(version: 20210102025618) do
 
   create_table "phones", force: :cascade do |t|
-    t.string "name"
-    t.string "model"
-    t.string "color"
-    t.string "vintage"
+    t.string  "name"
+    t.string  "model"
+    t.string  "color"
+    t.integer "age"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

@@ -1,0 +1,7 @@
+<h1>Sign Up</h1>
+<h3 style="color:Tomato;"><%= @errors %></h3> <!--load errors-->
+<form action="/signup" method="post">
+  <input type="text" name="user[username]" ><br>
+  <input type="password" name="user[password]"><br>
+  <input type="submit" value="Sign Up">
+</form>
