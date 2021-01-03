@@ -12,8 +12,6 @@ class UsersController < ApplicationController
   post '/signup' do
     # creating the user AND logging them in
     # if username or pw empty
-    # if params[:user].values.any?{|value| value.blank? }
-    # if params[:user][:username] == "" || params[:user][:password] == ""
     user = User.new(params[:user])
     if user.save
       # redirect
@@ -52,18 +50,6 @@ class UsersController < ApplicationController
     redirect to "/users/#{current_user.id}"
   end
 
-
-  # post '/users' do
-  #   @user = User.create(params[:user])
-  #   if !params["phone"]["name"].empty?
-  #     @user.phones << Phone.create(name: params["phone"]["name"])
-  #     # When using the shovel operator, ActiveRecord instantly fires update SQL
-  #     # without waiting for the save or update call on the parent object,
-  #     # unless the parent object is a new record.
-  #   end
-  #   redirect "/users/#{@user.id}"
-  # end
-
   get '/users/:id/edit' do
     @user = User.find(params[:id])
     erb :'/users/edit'
@@ -77,7 +63,6 @@ class UsersController < ApplicationController
   patch '/users/:id/edit' do
     @user = User.find(params[:id])
     @user.update(params[:user])
-
     redirect "/users/#{@user.id}"
   end
 end
