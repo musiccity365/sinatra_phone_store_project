@@ -1,0 +1,16 @@
+<% if logged_in?%>
+  
+  <% if @user.id == current_user.id %>
+  <h1>Edit User</h1>
+    <form action="/users/<%=current_user.id %>/edit" method="post">
+      <input type="hidden" value="PATCH" name="_method">
+      Name: <br>
+      <input type="text" name="user[name]" value="<%=@user.name%>"><br>  
+      <input type="submit" value="Update">
+    </form>
+  <% else %>
+    <%redirect to "/users/#{current_user.id}/edit"%>
+  <% end %>
+<% else %>
+  <%redirect to "/login" %>
+<% end %>

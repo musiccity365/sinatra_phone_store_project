@@ -7,14 +7,9 @@
     </ul>
     
     <% end %>
-      <a href="/phones/new">
-        <input type="button" value="Create">      </a>&nbsp;&nbsp;
-      <a href="/phones">
-        <input type="button" value="View List">
-      </a>&nbsp;&nbsp;
-      <a href="/users/<%= current_user.id %>/edit">
-        <input type="button" value="Edit User">
-      </a>&nbsp;&nbsp;
+      <a href="/phones/new"><input type="button" value="Create"></a>&nbsp;&nbsp;
+      <a href="/phones"><input type="button" value="View List"></a>&nbsp;&nbsp;
+      <a href="/users/<%= current_user.id %>/edit"><input type="button" value="Edit User"></a>&nbsp;&nbsp;
     </p>
   <% else %>
     <% redirect to "/users/#{current_user.id}" %> 

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   # load form
   get '/signup' do
-    @users = User.all
     erb :'/users/new'
   end
 
@@ -67,25 +66,20 @@ class UsersController < ApplicationController
   #   redirect "/users/#{@user.id}"
   # end
 
-  # get '/users/:id/edit' do
-  #   @user = User.find(params[:id])
-  #   @phones = Phone.all
-  #   erb :'/users/edit'
-  # end
+  get '/users/:id/edit' do
+    @user = User.find(params[:id])
+    erb :'/users/edit'
+  end
 
   get '/users/:id' do
     @user = User.find(params[:id])
     erb :'/users/show'
   end
 
-  # patch '/users/:id' do
-  #   @user = User.find(params[:id])
-  #   @user.update(params[:user])
+  patch '/users/:id/edit' do
+    @user = User.find(params[:id])
+    @user.update(params[:user])
 
-  #   if !params["phone"]["name"].empty?
-  #     @user.phones << Phone.create(name: params["phone"]["name"])
-  #   end
-
-  #   redirect "/users/#{@user.id}"
-  # end
+    redirect "/users/#{@user.id}"
+  end
 end
