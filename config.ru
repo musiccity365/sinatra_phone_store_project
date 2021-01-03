@@ -10,5 +10,5 @@ use Rack::MethodOverride
 run ApplicationController
 use UsersController
 use PhonesController
-use SessionsController
+# use SessionsController
 # use PostsController
