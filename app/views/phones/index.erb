@@ -1,4 +1,5 @@
 <h1>Phones: </h1>
 <ul><% @phones.each do |phone| %>
-  <li><%= phone.id %><%= phone.name %></li>
-<% end %></ul>
+  <li><a href="/phones/<%= user.id%>"><%= phone.name %> <%= phone.model %></li>
+<% end %>
+</ul>

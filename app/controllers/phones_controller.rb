@@ -31,6 +31,7 @@ class PhonesController < ApplicationController
   # Edit - loading a form to edit a phone
   get '/phones/:id/edit' do
     @phone = Phone.find_by(id: params[:id])
+    binding.pry
     erb :"phones/edit"
   end
 

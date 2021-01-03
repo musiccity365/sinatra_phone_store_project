@@ -2,7 +2,7 @@
 <form method="POST" action="/phones/<%=@phone.id %>/edit"> <%# action tells it the route, method tells it the http verb %>
   <input type="hidden" value="PATCH" name="_method">
   Name: <input type="text" name="phone[name]" value="<%= @phone.name %>"><br>
-  Model No.: <input type="text" name="phone[model]" value="<%= @phone.model %>"><br>
+  Model: <input type="text" name="phone[model]" value="<%= @phone.model %>"><br>
   Color: <input type="text" name="phone[color]" value="<%= @phone.color %>"><br>
   Age: <input type="text" name="phone[age]" value="<%= @phone.age %>"><br>
   <input type="submit" value="Create a Phone">
