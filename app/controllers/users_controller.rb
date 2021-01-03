@@ -73,10 +73,10 @@ class UsersController < ApplicationController
   #   erb :'/users/edit'
   # end
 
-  # get '/users/:id' do
-  #   @user = User.find(params[:id])
-  #   erb :'/users/show'
-  # end
+  get '/users/:id' do
+    @user = User.find(params[:id])
+    erb :'/users/show'
+  end
 
   # patch '/users/:id' do
   #   @user = User.find(params[:id])

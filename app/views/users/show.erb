@@ -1,9 +1,24 @@
 <% if logged_in?%>
   <% if @user.id == current_user.id %>
-    Hello
+    <h1><%= @user.name %></h1>
+    <p><% @user.phones.each do |phone| %>
+    <ul>
+      <li><a href="/phones/<%= phone.id%>"><%= phone.name %></li></a>
+    </ul>
+    
+    <% end %>
+      <a href="/phones/new">
+        <input type="button" value="Create">      </a>&nbsp;&nbsp;
+      <a href="/phones">
+        <input type="button" value="View List">
+      </a>&nbsp;&nbsp;
+      <a href="/users/<%= current_user.id %>/edit">
+        <input type="button" value="Edit User">
+      </a>&nbsp;&nbsp;
+    </p>
   <% else %>
-    <% redirect to "/users/#{current_user.id}" %>
-  <% end %>
+    <% redirect to "/users/#{current_user.id}" %> 
+ <% end %>
 <% else %>
   <% redirect to "/login" %>
 <% end %>
