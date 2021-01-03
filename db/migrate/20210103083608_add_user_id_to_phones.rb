@@ -1,4 +1,4 @@
-class AddUserIdToPhone < ActiveRecord::Migration
+class AddUserIdToPhones < ActiveRecord::Migration
   def change
     add_column :phones, :user_id, :integer
   end

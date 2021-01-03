@@ -7,14 +7,14 @@ class PhonesController < ApplicationController
 
   # Create - processes the form and creates a phone
   post '/phones' do
-    binding.pry
+    # binding.pry
     phone = current_user.phones.create(params) # all keys in params hash match column name, so you can check this line in binding.pry 
     redirect "/phones" # only get requests will render views directly
   end
 
   # Index - loads all the phones
   get '/phones' do
-    @phones = Phone.all
+    @phones = current_user.phones
     erb :"phones/index"
   end
 
@@ -31,8 +31,12 @@ class PhonesController < ApplicationController
   # Edit - loading a form to edit a phone
   get '/phones/:id/edit' do
     @phone = Phone.find_by(id: params[:id])
-    binding.pry
-    erb :"phones/edit"
+    # binding.pry
+    if @phone.user == current_user
+      erb :"phones/edit"
+    else
+      redirect to "/phones"
+    end
   end
 
   # Update
