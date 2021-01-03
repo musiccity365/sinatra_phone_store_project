@@ -1,9 +1,13 @@
 <% if logged_in?%>
 <h1>Phones: </h1>
 <ul><% @phones.each do |phone| %>
-
+  <% if phone.user_id == current_user.id %>
   <li><a href="phones/<%= phone.id%>"><%= phone.name %> <%= phone.model %></li>
+  <% end %>
 <% end %>
+  <a href="/phones/new">
+    <input type="button" value="Create">
+  </a>
 </ul>
 <% else %>
   <%redirect to "/login" %>

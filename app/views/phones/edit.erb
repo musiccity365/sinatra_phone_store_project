@@ -1,4 +1,7 @@
 <% if logged_in?%>
+  <% if @phone.user_id == current_user.id %>
+    
+  
 <h1>Edit <%= @phone.name %></h1>
 <form method="POST" action="/phones/<%=@phone.id %>/edit"> <%# action tells it the route, method tells it the http verb %>
   <input type="hidden" value="PATCH" name="_method">
@@ -8,6 +11,9 @@
   Age: <input type="text" name="phone[age]" value="<%= @phone.age %>"><br>
   <input type="submit" value="Update">
 </form> 
+  <% else %>
+    <%redirect to "/phones" %>
+  <% end %>
 <%# submitting this form will create a params hash, which is only accessible in the create action %>
 <% else %>
   <%redirect to "/login" %>

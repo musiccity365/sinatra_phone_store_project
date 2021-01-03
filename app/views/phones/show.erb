@@ -1,4 +1,5 @@
 <% if logged_in?%>
+  <% if @phone.user_id == current_user.id %>
 <h1>Name: <%= @phone.name %></h1>
 <h2>Model: <%= @phone.model %></h2>
 <h3>Color: <%= @phone.color %></h3>
@@ -14,6 +15,9 @@
 <a href="/phones">
   <input type="button" value="BACK">
 </a>
+  <% else %>
+    <%redirect to "/phones" %>
+  <% end %>
 <% else %>
   <%redirect to "/login" %>
 <% end %>
