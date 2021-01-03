@@ -14,7 +14,7 @@ class PhonesController < ApplicationController
 
   # Index - loads all the phones
   get '/phones' do
-    @phones = current_user.phones
+    @phones = Phone.all
     erb :"phones/index"
   end
 

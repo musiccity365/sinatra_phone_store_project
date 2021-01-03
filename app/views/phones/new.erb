@@ -1,3 +1,4 @@
+<% if logged_in?%>
 <h1>Make a New Phone</h1>
 <form method="POST" action="/phones"> <%# action tells it the route, method tells it the http verb %>
   Name: <input type="text" name="name"><br>
@@ -7,3 +8,6 @@
   <input type="submit" value="Create a Phone">
 </form> 
 <%# submitting this form will create a params hash, which is only accessible in the create action %>
+<% else %>
+  <%redirect to "/login" %>
+<% end %>

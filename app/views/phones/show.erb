@@ -1,16 +1,19 @@
+<% if logged_in?%>
 <h1>Name: <%= @phone.name %></h1>
 <h2>Model: <%= @phone.model %></h2>
 <h3>Color: <%= @phone.color %></h3>
 <h4>Age: <%= @phone.age %></h4>
 
-<ul>
-<% @phone.id.each do |model| %>
-  <li><%= model.name %></li>
-<% end %>
-</ul>
+
 
 <a href="/phones/<%= @phone.id %>/edit">Edit <%= @phone.name %></a>
-  <form method="POST" action="/phones/<%=@phone.id %>">
+<form method="POST" action="/phones/<%=@phone.id %>">
   <input type="hidden" value="DELETE" name="_method">
   <input type="submit" value="DELETE">
 </form>
+<a href="/phones">
+  <input type="button" value="BACK">
+</a>
+<% else %>
+  <%redirect to "/login" %>
+<% end %>

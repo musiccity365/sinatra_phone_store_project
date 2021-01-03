@@ -1,5 +1,10 @@
+<% if logged_in?%>
 <h1>Phones: </h1>
 <ul><% @phones.each do |phone| %>
-  <li><a href="<%= user.id%>"><%= phone.name %> <%= phone.model %></li>
+
+  <li><a href="phones/<%= phone.id%>"><%= phone.name %> <%= phone.model %></li>
 <% end %>
 </ul>
+<% else %>
+  <%redirect to "/login" %>
+<% end %>
