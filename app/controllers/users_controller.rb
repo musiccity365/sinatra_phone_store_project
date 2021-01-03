@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       # log them in
       session[:user_id] = user.id
       # redirect
-      redirect to "/phones/new"
+      redirect to "/phones/index"
     else
       redirect to "/login"
     end

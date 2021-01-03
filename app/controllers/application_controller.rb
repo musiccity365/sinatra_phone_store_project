@@ -30,9 +30,11 @@ class ApplicationController < Sinatra::Base
     end
     
     # def login(username, password)
-    #   @user = User.find_by(:username => params[:username])
-    #   if @user != nil && @user.password == params[:password]
-    #     session[:user_id] = @user.id
+    #   check if a user with this username actually exists
+    #   if so, set the session
+    #   user = User.find_by(username: params[:user][:username])
+    #   if user && user.authenticate(params[:user][:password])
+    #     session[:user_id] = user.id
     #     redirect to '/login'
     #   end
     #   erb :error

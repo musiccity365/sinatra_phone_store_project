@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       # how do I find the post that only the author user is allowed to edit
       post = Post.find(params[:id])
       if post.user_id == current_user.id
-        "An edit post form #{current_user.id} is editing #{}" # rendering if they are
+        "An edit post form #{current_user.id} is editing #{post.id}" # rendering if they are
       else
           redirect '/posts'
       end
