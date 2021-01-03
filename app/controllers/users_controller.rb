@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # load form
   get '/signup' do
-    @phones = Phone.all
+    @users = User.all
     erb :'/users/new'
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if user.save
       # redirect
       session[:user_id] = user_id # if true, then login user
-      redirect '/phones/index'
+      redirect to "/users"
     else      
       # binding.pry
       @errors = user.errors.full_messages.join(" - ")

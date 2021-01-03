@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
 
   get '/login' do
-    erb :"users/login"
+    erb :"/login"
   end
 
   post '/login' do
     user = User.find_by(username: params[:user][:username])
-    binding.pry
+    # binding.pry
     if user
       # log them in
       # redirect

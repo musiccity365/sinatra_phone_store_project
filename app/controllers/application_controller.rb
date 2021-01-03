@@ -10,12 +10,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :welcome
   end
+
+
 
   helpers do
     def logged_in?
-      !!current_user
+      !!session[:user_id]
     end
 
     def current_user
@@ -27,27 +29,34 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id]) # => THIS DOES THE SAME THING AS THE IF-ELSE STATEMENT ABOVE, SHORTHAND NOTATION
     end
     
-    def login(username, password)
-      @user = User.find_by(:username => params[:username])
-      if @user != nil && @user.password == params[:password]
-        session[:user_id] = @user.id
-        redirect to '/login'
-      end
-      erb :error
-    end
+    # def login(username, password)
+    #   @user = User.find_by(:username => params[:username])
+    #   if @user != nil && @user.password == params[:password]
+    #     session[:user_id] = @user.id
+    #     redirect to '/login'
+    #   end
+    #   erb :error
+    # end
   end
 
 
   get '/login' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
-      erb :login
+    erb :"/login"
+  end
+
+  post '/login' do
+    user = User.find_by(username: params[:user][:username])
+    binding.pry
+    if user
+      # log them in
+      # redirect
+    else
+
     end
   end
 
   get '/logout' do
     session.clear
-    redirect to '/'
   end
 
 end
