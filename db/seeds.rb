@@ -1,4 +1,5 @@
 User.destroy_all
+Phone.destroy_all
 
 musiccity365 = User.create(:name => "Michael Sackstein", :username => "musiccity365", :password => "Password1",)
 musiccity365.phones.create(name: "Stromberg Carlson", model: "500 Rotary Desk Telephone", color: "ivory", age: 70)
