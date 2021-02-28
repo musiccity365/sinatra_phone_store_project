@@ -1,5 +1,5 @@
 <% if logged_in?%>
-  
+
   <% if @user.id == current_user.id %>
   <h1>Edit User</h1>
     <form action="/users/<%=current_user.id %>/edit" method="post">
